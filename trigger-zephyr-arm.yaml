@@ -1,0 +1,33 @@
+- job:
+    name: trigger-zephyr-arm
+    project-type: freestyle
+    defaults: global
+    properties:
+        - authorization:
+            anonymous:
+                - job-read
+        - build-discarder:
+            days-to-keep: 45
+            num-to-keep: 45
+    disabled: true
+    node: build
+    display-name: 'Trigger for Zephyr project (arm)'
+    scm:
+        - git:
+            url: https://github.com/zephyrproject-rtos/zephyr.git
+            refspec: +refs/heads/arm:refs/remotes/origin/arm
+            name: origin
+            branches:
+                - refs/heads/arm
+            skip-tag: true
+            shallow-clone: true
+            wipe-workspace: false
+    triggers:
+        - pollscm: 'H/5 * * * *'
+    wrappers:
+        - timestamps
+        - build-name:
+            name: '#${BUILD_NUMBER}-${GIT_REVISION,length=8}'
+    builders:
+        - trigger-builds:
+            - project: 'zephyr-arm'
