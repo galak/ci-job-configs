@@ -9,8 +9,8 @@
         - build-discarder:
             days-to-keep: 45
             num-to-keep: 45
-    disabled: true
-    node: build
+    disabled: false
+    node: master
     display-name: 'Trigger for Zephyr project (arm)'
     scm:
         - git:
