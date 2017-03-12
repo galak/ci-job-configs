@@ -28,13 +28,13 @@ commit(s) will be deployed).
 Note: changes made through Jenkins web interface will be LOST.
 
 To manually force a Jenkins job update:
-1. Install jenkins-job-builder package
-2. Copy provided jenkins_jobs.ini-sample to jenkins_jobs.ini
-3. Edit jenkins_jobs.ini user/password settings as appropriate
-4. Run the job builder in test mode:
+* Install jenkins-job-builder package
+* Copy provided jenkins_jobs.ini-sample to jenkins_jobs.ini
+* Edit jenkins_jobs.ini user/password settings as appropriate
+* Run the job builder in test mode:
 
     jenkins-jobs --conf=jenkins_jobs.ini test <job>.yaml
 
-4. Update the job on the Jenkins master:
+* Update the job on the Jenkins master:
 
     jenkins-jobs --conf=jenkins_jobs.ini update <job>.yaml
