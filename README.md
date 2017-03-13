@@ -33,8 +33,8 @@ To manually force a Jenkins job update:
 * Edit jenkins_jobs.ini user/password settings as appropriate
 * Run the job builder in test mode:
 
-    jenkins-jobs --conf=jenkins_jobs.ini test <job>.yaml
+        jenkins-jobs --conf=jenkins_jobs.ini test <job>.yaml
 
 * Update the job on the Jenkins master:
 
-    jenkins-jobs --conf=jenkins_jobs.ini update <job>.yaml
+        jenkins-jobs --conf=jenkins_jobs.ini update <job>.yaml
